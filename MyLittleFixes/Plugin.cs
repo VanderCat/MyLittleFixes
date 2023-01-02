@@ -2,6 +2,7 @@
 using HarmonyLib;
 using MyLittleFixes.Patches.BugFix;
 using MyLittleFixes.Patches.Gameplay;
+using MyLittleFixes.Patches.Tweaks;
 using UnityEngine;
 
 namespace MyLittleFixes
@@ -27,6 +28,11 @@ namespace MyLittleFixes
             if (MyLittleFixes.Config.Gameplay.DisableShimmerwing.Value)
             {
                 harmony.PatchAll(typeof(DisableShimmerwing));
+            }
+            
+            if (MyLittleFixes.Config.Tweaks.SkipIntro.Value)
+            {
+                harmony.PatchAll(typeof(SkipIntro));
             }
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
         }

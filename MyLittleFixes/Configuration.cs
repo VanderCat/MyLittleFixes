@@ -21,6 +21,10 @@ public static class Config
         public static ConfigEntry<bool> PauseScreenCanvasFix;
         public static ConfigEntry<bool> HideMouse;
     }
+    public static class Tweaks
+    {
+        public static ConfigEntry<bool> SkipIntro;
+    }
     
     public static void LoadConfig()
     {
@@ -38,5 +42,10 @@ public static class Config
             nameof(Bugfix.HideMouse),
             true,
             "Hide mouse in-game (it isn't used anyway)");
+        // Tweak
+        Tweaks.SkipIntro = File.Bind<bool>(nameof(Tweaks),
+            nameof(Tweaks.SkipIntro),
+            false,
+            "Skip Intros at game launch");
     }
 }
